@@ -1,0 +1,28 @@
+/* use a non-serif font */
+html {
+  font-family: 'verdana', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: blue;
+}
+
+#map-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 300px;
+    left: 0;
+  }
+
+#sidebar {
+  position: absolute;
+  left: 1033px;
+  top:0;
+  bottom:0;
+  background: lightgreen;
+  width: 301px;
+  text-align: center;
+}
