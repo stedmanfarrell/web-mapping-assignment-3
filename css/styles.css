@@ -6,23 +6,78 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: blue;
+}
+h1 {
+  font-size: 50px;
+  color: white;
+}
+h3 {
+  font-size: 20px;
+  background: white;
+  color: #3294a8;
 }
 
+#fullscreen {
+  position: absolute;
+  background-image: url(https://images.57hours.com/wp-content/uploads/2017/05/P1130036-1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 100%;
+  height: 100%;
+  width: 100%;
+}
+
+#header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 300px;
+  text-align: center;
+}
+#spotname {
+  position: absolute;
+  top: 150px;
+  left: 540px;
+  font-size: 40px;
+  color: #3294a8;
+  background-color: white;
+}
 #map-container {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 300px;
-    left: 0;
+    top: 115px;
+    bottom: 20px;
+    right: 20px;
+    left: 510px;
+    padding-top:
   }
 
 #sidebar {
   position: absolute;
-  left: 1033px;
-  top:0;
+  left: 15px;
+  top: 115px;
   bottom:0;
-  background: lightgreen;
-  width: 301px;
+  width: 240px;
   text-align: center;
+}
+
+#infobox {
+  position: absolute;
+  display: inline-block;
+  left: 540px;
+  top: 580px;
+  color: #3294a8;
+  background-color: white;
+  font-size: 20px;
+}
+
+.flyto-button {
+  background: white;
+  color: #3294a8;
+  padding: 10px;
+  border: none;
+  font-weight: 600;
+  font-size: 1.5rem;
+  width: 100%;
+  margin-bottom:15px;
 }

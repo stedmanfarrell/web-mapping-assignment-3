@@ -4,18 +4,56 @@
     <meta charset='utf-8' />
     <title></title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js'></script>
-    <link href='css/styles.css' rel='stylesheet' />
+      <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css' rel='stylesheet' />
+      <link href='css/styles.css' rel='stylesheet' />
 </head>
 <body>
+<div id='fullscreen'></div>
+
+<div id='header'>
+  <h1>
+    <img src="https://img.icons8.com/ios/50/000000/kitesurfing.png">
+     NYC Kite Surfing Spots
+    <img src="https://img.icons8.com/ios/50/000000/kitesurfing.png">
+  </h1>
+</div>
+
+
 
 <div id='map-container'></div>
 
+<div id='spotname'>
+</div>
+
+<div id='infobox'>
+  <div id='season'>
+  </div>
+  <div id='winddirection'>
+  </div>
+  <div id='experiencelevel'>
+  </div>
+  <div id='waterquality'>
+  </div>
+</div>
 <div id='sidebar'>
+  <button class="flyto-button" id="return">
+    <i>Click the Buttons Below for Info on Locations</i>
+    <img src="https://cdn4.iconfinder.com/data/icons/maps-and-location-4/16/16_pin-map-location-place-center-512.png" height="15" width="15">
+  </button>
 
-NYC Kite Surfing Spots
-
+  <button class="flyto-button" id="plumb">Plumb Beach</button>
+  <br>
+  <button class="flyto-button" id="cross">Cross Bay Boulevard</button>
+  <br>
+  <button class="flyto-button" id="seagate">Sea Gate</button>
+  <br>
+  <button class="flyto-button" id="breezy">Breezy Point</button>
+  <br>
+  <button class="flyto-button" id="rockaway">Rockaway Beach</button>
+  <br>
+  <button class="flyto-button" id="coney">Coney Island</button>
+  <br>
+  <button class="flyto-button" id="floyd">Floyd Bennett Field</button>
 </div>
 
 <!-- Load mapboxGL, jQuery, then our local javascript files -->
