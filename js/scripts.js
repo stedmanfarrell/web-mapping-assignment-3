@@ -20,8 +20,6 @@ spotData.forEach(function(spotEntry) {
   console.log(spotEntry.name, spotEntry.lat)
   new mapboxgl.Marker()
     .setLngLat([spotEntry.lat, spotEntry.lng])
-    .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-      .setHTML(`${spotEntry.name}`))
     .addTo(map);
 })
 //test pulling from dataset
@@ -68,19 +66,81 @@ $('.spotButton').on('click', function() {
 map.on('style.load', function() {
 
   // add a geojson source to the map using our external geojson file
-  map.addSource('polys', {
+  map.addSource('kitearea', {
     type: 'geojson',
-    data: './data/data.geojson',
+    data: './data/kitearea.geojson',
   });
-
+  map.addSource('launcharea', {
+    type: 'geojson',
+    data: './data/launcharea.geojson',
+  });
+  map.addSource('parkingarea', {
+    type: 'geojson',
+    data: './data/parkingarea.geojson',
+  });
   // let's make sure the source got added by logging the current map state to the console
   console.log(map.getStyle().sources);
-  // add layer to map
+  // add layer
   map.addLayer({
-    'id': 'polys',
+    'id': 'kitearea',
     'type': 'fill',
-    'source': 'polys',
+    'source': 'kitearea',
     'layout': {},
-    'paint': {},
-});
+    'paint': {
+      'fill-color': '#34eb58',
+      'fill-opacity': 0.2
+    },
+    'description': 'Safe Kiting Area'
+  });
+  map.addLayer({
+    'id': 'launcharea',
+    'type': 'fill',
+    'source': 'launcharea',
+    'layout': {},
+    'paint': {
+      'fill-color': '#ebeb34',
+      'fill-opacity': 0.5
+    },
+    });
+    map.addLayer({
+      'id': 'parkingarea',
+      'type': 'fill',
+      'source': 'parkingarea',
+      'layout': {},
+      'paint': {
+        'fill-color': '#344ceb',
+        'fill-opacity': 0.6
+      },
+      'description': 'Parking Area'
+    });
+    //create popup varible
+    var popup = new mapboxgl.Popup();
+
+    map.on('mouseenter', 'kitearea', function(e) {
+    popup
+      .setLngLat(e.lngLat)
+      .setHTML('Kiting Area')
+      .addTo(map)
+    })
+    map.on('mouseleave', 'kitearea', function() {
+      popup.remove();
+    })
+    map.on('mouseenter', 'parkingarea', function(e) {
+    popup
+      .setLngLat(e.lngLat)
+      .setHTML('Parking')
+      .addTo(map)
+    })
+    map.on('mouseleave', 'parkingarea', function() {
+      popup.remove();
+    })
+    map.on('mouseenter', 'launcharea', function(e) {
+    popup
+      .setLngLat(e.lngLat)
+      .setHTML('Safe Launch Area')
+      .addTo(map)
+    })
+    map.on('mouseleave', 'launcharea', function() {
+      popup.remove();
+    })
 })

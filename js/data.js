@@ -62,8 +62,8 @@ var spotData = [
   {
     "id": "floyd",
     "name": "Floyd Bennett Field",
-    "lat": -73.883144,
-    "lng": 40.604449,
+    "lat": -73.881067,
+    "lng": 40.598280,
     "season": "All Year",
     "winddirection": "E-SE",
     "experiencelevel": "Advanced",
