@@ -1,5 +1,6 @@
 var spotData = [
   {
+    "id": "plumb",
     "name": "Plumb Beach",
     "lat": -73.921148,
     "lng": 40.582803,
@@ -9,6 +10,7 @@ var spotData = [
     "waterquality": "Poor"
   },
   {
+    "id": "cross",
     "name": "Cross Bay Boulevard (CBB)",
     "lat": -73.83319,
     "lng": 40.637661,
@@ -18,6 +20,7 @@ var spotData = [
     "waterquality": "Poor"
   },
   {
+    "id": "seagate",
     "name": "Sea Gate",
     "lat": -74.005357,
     "lng": 40.581668,
@@ -27,6 +30,7 @@ var spotData = [
     "waterquality": "Poor"
   },
   {
+    "id": "breezy",
     "name": "Breezy Point",
     "lat": -73.935202,
     "lng": 40.557232,
@@ -36,6 +40,7 @@ var spotData = [
     "waterquality": "Fair"
   },
   {
+    "id": "rockaway",
     "name": "Rockaway Beach",
     "lat": -73.81275,
     "lng": 40.583252,
@@ -45,15 +50,17 @@ var spotData = [
     "waterquality": "Good"
   },
   {
+    "id": "coney",
     "name": "Coney Island",
     "lat": -73.997819,
     "lng": 40.570529,
-    "season": "Labor Day - Memorial Day or When No Life Guards Present",
+    "season": "Labor Day - Memorial Day or When No Life Guards Presentl",
     "winddirection": "SSE-SSW",
     "experiencelevel": "Beginner",
     "waterquality": "Good"
   },
   {
+    "id": "floyd",
     "name": "Floyd Bennett Field",
     "lat": -73.883144,
     "lng": 40.604449,

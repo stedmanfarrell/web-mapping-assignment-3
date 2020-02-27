@@ -81,3 +81,14 @@ h3 {
   width: 100%;
   margin-bottom:15px;
 }
+
+.spotButton {
+  background: white;
+  color: #3294a8;
+  padding: 10px;
+  border: none;
+  font-weight: 600;
+  font-size: 1.5rem;
+  width: 100%;
+  margin-bottom:15px;
+}

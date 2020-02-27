@@ -25,97 +25,62 @@ spotData.forEach(function(spotEntry) {
     .addTo(map);
 })
 //test pulling from dataset
-console.log(spotData[1].name)
+console.log(spotData[3].name)
 
-//listener: when a button is clicked
+//listener for when return button is clicked
 $('#return').on('click', function() {
   map.flyTo({
     center: initialCenterPoint,
     zoom: initialZoom,
   })
+  //clear any info on map
   $('#spotname, #season, #winddirection, #experiencelevel, #waterquality').empty()
 })
-$('#plumb').on('click', function() {
-  map.flyTo({
-    center: [-73.921148, 40.582803],
-    zoom: 15
+
+//listener: when button is clicked
+$('.spotButton').on('click', function() {
+  // identify what is clicked
+  var buttonId = $(this).attr('id')
+  // lookup object in the data using array.find()
+  var spot = spotData.find(function(currentSpot) {
+    // returns the first thing where this resolves to true:
+    return currentSpot.id === buttonId
   })
+  console.log(spot.name)
+  // create varible to center map on choosen location
+  var centernow = [spot.lat,spot.lng]
+
+  // Once we have the data element that matches the button press, we use that to populate the elements on the page:
+  map.flyTo({
+    center: centernow,
+    zoom: 15,
+ })
   // display spot info above map
-  $('#spotname').html(`${spotData[0].name}`)
-  $('#season').html(`Kiting Allowed: ${spotData[0].season}`)
-  $('#winddirection').html(`Best Wind Direction: ${spotData[0].winddirection}`)
-  $('#experiencelevel').html(`Experience Level: ${spotData[0].experiencelevel}`)
-  $('#waterquality').html(`Water Quality: ${spotData[0].waterquality}`)
+  $('#spotname').html(`${spot.name}`)
+  $('#season').html(`Kiting Allowed: ${spot.season}`)
+  $('#winddirection').html(`Best Wind Direction: ${spot.winddirection}`)
+  $('#experiencelevel').html(`Experience Level: ${spot.experiencelevel}`)
+  $('#waterquality').html(`Water Quality: ${spot.waterquality}`)
 })
-$('#cross').on('click', function() {
-  map.flyTo({
-    center: [-73.83319, 40.637661,],
-    zoom: 15
-  })
-  // display spot info above map
-  $('#spotname').html(`${spotData[1].name}`)
-  $('#season').html(`Kiting Allowed: ${spotData[1].season}`)
-  $('#winddirection').html(`Best Wind Direction: ${spotData[1].winddirection}`)
-  $('#experiencelevel').html(`Experience Level: ${spotData[1].experiencelevel}`)
-  $('#waterquality').html(`Water Quality: ${spotData[1].waterquality}`)
-})
-$('#seagate').on('click', function() {
-  map.flyTo({
-    center: [-74.005357, 40.581668,],
-    zoom: 15
-  })
-  // display spot info above map
-  $('#spotname').html(`${spotData[2].name}`)
-  $('#season').html(`Kiting Allowed: ${spotData[2].season}`)
-  $('#winddirection').html(`Best Wind Direction: ${spotData[2].winddirection}`)
-  $('#experiencelevel').html(`Experience Level: ${spotData[2].experiencelevel}`)
-  $('#waterquality').html(`Water Quality: ${spotData[2].waterquality}`)
-})
-$('#breezy').on('click', function() {
-  map.flyTo({
-    center: [-73.935202, 40.557232,],
-    zoom: 15
-  })
-  // display spot info above map
-  $('#spotname').html(`${spotData[3].name}`)
-  $('#season').html(`Kiting Allowed: ${spotData[3].season}`)
-  $('#winddirection').html(`Best Wind Direction: ${spotData[3].winddirection}`)
-  $('#experiencelevel').html(`Experience Level: ${spotData[3].experiencelevel}`)
-  $('#waterquality').html(`Water Quality: ${spotData[3].waterquality}`)
-})
-$('#rockaway').on('click', function() {
-  map.flyTo({
-    center: [-73.81275, 40.583252,],
-    zoom: 15
-  })
-  // display spot info above map
-  $('#spotname').html(`${spotData[4].name}`)
-  $('#season').html(`Kiting Allowed: ${spotData[4].season}`)
-  $('#winddirection').html(`Best Wind Direction: ${spotData[4].winddirection}`)
-  $('#experiencelevel').html(`Experience Level: ${spotData[4].experiencelevel}`)
-  $('#waterquality').html(`Water Quality: ${spotData[4].waterquality}`)
-})
-$('#coney').on('click', function() {
-  map.flyTo({
-    center: [-73.997819, 40.570529,],
-    zoom: 15
-  })
-  // display spot info above map
-  $('#spotname').html(`${spotData[5].name}`)
-  $('#season').html(`Kiting Allowed: ${spotData[5].season}`)
-  $('#winddirection').html(`Best Wind Direction: ${spotData[5].winddirection}`)
-  $('#experiencelevel').html(`Experience Level: ${spotData[5].experiencelevel}`)
-  $('#waterquality').html(`Water Quality: ${spotData[5].waterquality}`)
-})
-$('#floyd').on('click', function() {
-  map.flyTo({
-    center: [-73.883144, 40.604449,],
-    zoom: 15
-  })
-  // display spot info above map
-  $('#spotname').html(`${spotData[6].name}`)
-  $('#season').html(`Kiting Allowed: ${spotData[6].season}`)
-  $('#winddirection').html(`Best Wind Direction: ${spotData[6].winddirection}`)
-  $('#experiencelevel').html(`Experience Level: ${spotData[6].experiencelevel}`)
-  $('#waterquality').html(`Water Quality: ${spotData[6].waterquality}`)
+
+
+// wait for the initial style to Load
+map.on('style.load', function() {
+
+  // add a geojson source to the map using our external geojson file
+  map.addSource('polys', {
+    type: 'geojson',
+    data: './data/data.geojson',
+  });
+
+  // let's make sure the source got added by logging the current map state to the console
+  console.log(map.getStyle().sources);
+  // add layer to map
+  map.addLayer({
+    'id': 'polys',
+    'type': 'fill',
+    'source': 'polys',
+    'layout': {},
+    'paint': {},
+});
 })
