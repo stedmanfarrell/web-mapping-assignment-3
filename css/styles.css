@@ -48,7 +48,7 @@ h3 {
     top: 115px;
     bottom: 20px;
     right: 20px;
-    left: 510px;
+    left: 36%;
     padding-top:
   }
 
@@ -65,7 +65,7 @@ h3 {
   position: absolute;
   display: inline-block;
   left: 540px;
-  top: 580px;
+  bottom: 10%;
   color: #3294a8;
   background-color: white;
   font-size: 20px;
